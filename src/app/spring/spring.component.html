@@ -1,0 +1,26 @@
+<h2 class="text-info">Awesome places to visit in Spring</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 my-2 d-flex align-items-stretch" *ngFor="let place of places">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1 class="text-succes">{{place.name}}</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{place.state}}
+          </mat-card-subtitle>
+          <br>
+        </mat-card-header>
+        <img mat-card-image [ngStyle]="{'height':'150px', 'width':'fit'}" src="{{place.pic}}" alt ="{{place.name}}">
+        <mat-card-content>
+          <p>{{place.description}}</p>
+        </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent" class="btn btn-primary">see more</button>
+        <button mat-raised-button class="btn btn-danger">Share</button>
+      </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

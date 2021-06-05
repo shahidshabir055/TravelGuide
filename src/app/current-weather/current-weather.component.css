@@ -1,0 +1,12 @@
+.limitTextHeight {
+  /* height: 20px;
+  overflow: hidden; */
+  height: 4rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+.show-less {
+  height: 100px;
+  /* overflow: hidden; */
+  padding: 1rem;
+}

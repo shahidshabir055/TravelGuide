@@ -1,0 +1,32 @@
+.card-img-top {
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+}
+.contain{
+  height: 450px;
+  width: 470px;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.sliders {
+  width: 450px;
+  height: 330px;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+

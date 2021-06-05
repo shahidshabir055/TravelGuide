@@ -1,0 +1,12 @@
+
+<mat-carousel>
+  <mat-carousel-slide *ngFor="let place of places; let i=index">
+    <div class="container" [ngStyle] = "{'background-image':'url('+place.pic+')','background-repeat': 'no-repeat','position':'center', 'height':'100%', 'background-size': '100% 100%'}">
+      <div class="col-4 justify-content-end text text-primary">
+        <h2 class="text-danger">{{place.name}}</h2>
+        <h2 class="text-danger">{{place.price}}</h2>
+        <button mat-flat-button class="btn btn-primary" (click)="setIndex(i)" routerLink='/monthlyDetails'>See More Details</button>
+      </div>
+    </div>
+  </mat-carousel-slide>
+</mat-carousel>

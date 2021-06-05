@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<h2 class="text text-danger heading">Our monthly special packages</h2>
+<div class="monthly">
+  <app-monthly></app-monthly>
+</div>
+<section>
+  <div class="button-row">
+    <button type="button" class="btn btn-primary" (click)="onTabClick(0)">Winter</button>
+    <button type="button" class="btn btn-success ml-2" (click)="onTabClick(1)">Spring</button>
+    <button type="button" class="btn btn-danger ml-2" (click)="onTabClick(2)">Summer</button>
+    <button type="button" class="btn btn-warning ml-2" (click)="onTabClick(3)">Autumn</button>
+    <button type="button" class="btn btn-dark ml-2" (click)="onTabClick(4)">All Places</button>
+  </div>
+</section>
+<div class="container">
+  <app-winter *ngIf="compIndex === 0"></app-winter>
+  <app-spring *ngIf="compIndex === 1"></app-spring>
+  <app-summer *ngIf="compIndex === 2"></app-summer>
+  <app-autumn *ngIf="compIndex === 3"></app-autumn>
+  <div *ngIf="compIndex === 4">
+    <app-winter></app-winter>
+    <app-spring></app-spring>
+    <app-summer></app-summer>
+    <app-autumn></app-autumn>
+    <app-hotels></app-hotels>
+  </div>
+</div>
+

@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+<div *ngFor="let destination of destinations; let i = index">
+  <div *ngIf="i===indexValue">
+    <div class="container d-flex justify-content-center">
+      <div class="row">
+        <div class="col-6 d-flex justify-content-center">
+          <div class="card" style=" width: 450px; margin-top: 10px;">
+            <div class="card-body">
+              <div class="sliders">
+                <ng-container *ngFor="let img of destination.images; let i = index">
+                  <div class="slider" *ngIf="current == i" @fade>
+                    <img class="img" [src]="img">
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="card" style="height:450px; width: 450px; margin-top: 10px;">
+            <div class="card-body">
+              <h1 class="center" *ngIf='resultFound()'>Current weather for {{currentWeather.name}}</h1>
+              <table *ngIf='resultFound()'>
+                <tbody>
+                  <tr>
+                    <td>
+                      <h3>Current Temperature:</h3>
+                    </td>
+                    <td>
+                      <h3>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup>o</sup>C</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Maximum Temperature:</h3>
+                    </td>
+                    <td>
+                      <h3>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup>o</sup>C</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Minimum Temperature:</h3>
+                    </td>
+                    <td>
+                      <h3>{{currentWeather.main?.temp_min - 273.15 | number:'1.0-0'}}<sup>o</sup>C</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Clouds:</h3>
+                    </td>
+                    <td>
+                      <h3>{{currentWeather.clouds?.all}}%</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Sunrise</h3>
+                    </td>
+                    <td>
+                      <h3>{{currentWeather.sys?.sunrise*1000 | date:'long'}}</h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h3>Sunset</h3>
+                    </td>
+                    <td>
+                      <h3>{{currentWeather.sys?.sunset*1000 | date:'long'}}</h3>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div *ngIf='!resultFound()'>
+                <h1 class="center">{{msg || 'Failed to get weather.'}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container d-flex justify-content-center">
+      <div class="row">
+        <div class="col-6">
+          <div [ngClass]="{'limitTextHeight': isReadMore}">
+            <div class="card" style="width: 450px;  margin-top: 10px;">
+              <div class="card-body">
+                <h3>Overview</h3>
+                <p>{{destination.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="card" style="height:600px; width: 450px; margin-top: 10px;">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
